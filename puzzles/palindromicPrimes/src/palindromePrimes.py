@@ -15,9 +15,8 @@ def isPrime(data):
     if (data%2==0): 
         return False
     
-    i = 3 # No need to check <3
-    #Use square of i, count two
-    for i in range(i*i,data, 2):
+    #Use square root of data, count two to skip evens
+    for i in range(3, int(data**0.5)+1, 2):
         if (data % i==0):            
             return False
         
@@ -47,6 +46,9 @@ if __name__ == '__main__':
     
     valid = []
     sortedResults = []
+    
+    isPrime(9)
+    
     pi = readAccuratePi()
     
     for i in range(1000000, 9999999):
