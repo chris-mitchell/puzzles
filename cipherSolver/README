@@ -1,0 +1,14 @@
+This script uses some language heuristics to determine the original result from a basic ROTN cipher.
+
+We first encode a string in a rotation of the users choosing, then we build the percentage of each valid characters in the given string,
+we then attempt to get the closest match to a given character (E is the best). Once we found a match, we determine the rotation.
+
+Ideally, we found the correct match and can rotate back to reveal the original message.
+
+Note: Strings must be sufficiently long to be able to be determined. Around 500+ characters usually works. 
+
+Sample output:
+Sample String: Washington had a vision of a great...truncated
+Sample Cipher: Jnfuvatgba unq n ivfvba bs n terng...truncated
+Guessed rotation of: 13
+Original String: Washington had a vision of a great...truncated
