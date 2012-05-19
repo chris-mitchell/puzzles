@@ -25,7 +25,24 @@ def fizzBuzzModulo():
     return fizzBuzz
 
 def fizzBuzzBitwise():
-    pass
+    fizzBuzz = {}
+    '''
+    Fizz Buzz map using two bits for each number, so 1 is 00, 2 is 00, 3 is 01, etc...
+    01 is multiples of 3
+    10 is multiples of 5
+    11 is multiples of both 3 and 5
+    '''
+    fizzBuzzMap = 0b110000010010010000011000010000
+    fBTranslate = ("Fizz", "Buzz", "FizzBuzz")
+    for i in xrange(1,101):
+        # Bitmask all but the current value
+        current = fizzBuzzMap & 0b11 
+        #Assign our result
+        fizzBuzz[i] =  fBTranslate[int(current)-1] if (current > 0b0) else str(i)
+        # Make a circular loop by shifting the map, and appending current to the beginning
+        fizzBuzzMap = fizzBuzzMap >> 2 | current << 28 
+    
+    return fizzBuzz
 
 def fizzBuzzDecrement():
     '''
@@ -57,7 +74,6 @@ def fizzBuzzDecrement():
     return fizzBuzz
 
 if __name__ == '__main__':
-    
     
     modulo = timeit.Timer("fizzBuzzModulo()", "from __main__ import fizzBuzzModulo")
     print "Results of modulo calculations..."
