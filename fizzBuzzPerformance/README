@@ -1,0 +1,11 @@
+This is a performance test of multiple implementations of the FizzBuzz question.
+For a range 1 to 100, print Fizz for multiples of 3, Buzz for multiples of 5, 
+FizzBuzz for multiples of both 3 and 5, and the integer for everything else. 
+
+Sample output (without bitwise yet):
+Results of modulo calculations...
+[1.7122527516555135, 1.6958198669836266, 1.7822542104387238, 1.8248071221494655, 1.8255652784940422]
+Results of decrement calculations...
+[1.6480708105698092, 1.5949965790506404, 1.5785258892927363, 1.5791089916520615, 1.6539075871109308]
+Results of bitwise calculations...
+[0.004793849276875761, 0.004768782861148679, 0.004782754305978187, 0.004778234132650994, 0.00476590638720964]
