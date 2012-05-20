@@ -3,7 +3,8 @@ Created on May 19, 2012
 
 @author: christom
 '''
-
+import profile
+import pstats
 import timeit
 
 def fizzBuzzModulo():
@@ -75,14 +76,21 @@ def fizzBuzzDecrement():
 
 if __name__ == '__main__':
     
+    moduloNames = []
+    
     modulo = timeit.Timer("fizzBuzzModulo()", "from __main__ import fizzBuzzModulo")
     print "Results of modulo calculations..."
     print modulo.repeat(5, 50000)
+    print profile.run('fizzBuzzModulo();')
     
     decrement = timeit.Timer("fizzBuzzDecrement()", "from __main__ import fizzBuzzDecrement")
     print "Results of decrement calculations..."
     print decrement.repeat(5, 50000)
+    print profile.run('fizzBuzzDecrement();')
     
     bitwise = timeit.Timer("fizzBuzzBitwise()", "from __main__ import fizzBuzzBitwise")
     print "Results of bitwise calculations..."
     print bitwise.repeat(5, 50000)
+    print profile.run('fizzBuzzBitwise();')
+    
+    
